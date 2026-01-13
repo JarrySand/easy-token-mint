@@ -79,9 +79,15 @@ export function updateActivity(): void {
  * Check if session has timed out due to inactivity
  */
 export function isSessionTimedOut(): boolean {
-  if (sessionTimeoutMinutes <= 0) return false;
-  if (cachedPrivateKey === null) return false;
-  if (authState.lastActivityTime === null) return false;
+  if (sessionTimeoutMinutes <= 0) {
+    return false;
+  }
+  if (cachedPrivateKey === null) {
+    return false;
+  }
+  if (authState.lastActivityTime === null) {
+    return false;
+  }
 
   const timeoutMs = sessionTimeoutMinutes * 60 * 1000;
   const elapsed = Date.now() - authState.lastActivityTime;
@@ -93,7 +99,9 @@ export function isSessionTimedOut(): boolean {
  * Auto-locks if session has timed out
  */
 export function checkSession(): boolean {
-  if (cachedPrivateKey === null) return false;
+  if (cachedPrivateKey === null) {
+    return false;
+  }
 
   if (isSessionTimedOut()) {
     lockApp();
@@ -107,7 +115,9 @@ export function checkSession(): boolean {
  * Check if account is currently locked
  */
 export function isLocked(): boolean {
-  if (authState.lockUntil === null) return false;
+  if (authState.lockUntil === null) {
+    return false;
+  }
   if (Date.now() >= authState.lockUntil) {
     // Lock expired
     authState.lockUntil = null;
@@ -120,7 +130,9 @@ export function isLocked(): boolean {
  * Get remaining lock time in milliseconds
  */
 export function getRemainingLockTime(): number {
-  if (authState.lockUntil === null) return 0;
+  if (authState.lockUntil === null) {
+    return 0;
+  }
   return Math.max(0, authState.lockUntil - Date.now());
 }
 

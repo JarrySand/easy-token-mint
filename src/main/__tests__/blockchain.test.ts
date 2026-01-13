@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { ethers } from 'ethers';
 
 // Mock pin-auth
 vi.mock('../pin-auth', () => ({
@@ -25,7 +24,6 @@ vi.mock('../../../artifacts/contracts/MintableToken.sol/MintableToken.json', () 
 }));
 
 import { getCachedPrivateKey } from '../pin-auth';
-import { getConfig } from '../config';
 import {
   isValidAddress,
   getAddressFromPrivateKey,
@@ -35,8 +33,6 @@ import {
 
 describe('blockchain module', () => {
   const testPrivateKey = '0x' + 'a'.repeat(64);
-  const validAddress = '0x742d35Cc6634C0532925a3b844Bc9e7595f8dEfB';
-  const invalidAddress = '0xinvalid';
 
   beforeEach(() => {
     vi.clearAllMocks();

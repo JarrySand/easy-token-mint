@@ -1,20 +1,32 @@
-import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import path from 'path';
+import type { App, BrowserWindow as BrowserWindowType, WebContents } from 'electron';
+
+// Dynamic import to ensure electron is properly initialized
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const electron = require('electron');
+const app: App = electron.app;
+const BrowserWindow: typeof BrowserWindowType = electron.BrowserWindow;
+
 import { initializeDatabase } from './database';
-import { initializeConfig, getConfig, updateConfig } from './config';
-import { getDataPath, ensureDataDirectories } from './paths';
+import { initializeConfig } from './config';
+import { ensureDataDirectories } from './paths';
 import { registerIpcHandlers } from './ipc-handlers';
 import { logger } from './logger';
 import { initAutoUpdater, checkForUpdatesOnStartup } from './updater';
 
+let mainWindow: BrowserWindowType | null = null;
+
+// Check getIsDev() lazily to avoid accessing app.isPackaged before app is ready
+const getIsDev = () => process.env.NODE_ENV === 'development' || !app.isPackaged;
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) {
-  app.quit();
+// electron-squirrel-startup should only be checked when app is available
+if (app && app.isPackaged) {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  if (require('electron-squirrel-startup')) {
+    app.quit();
+  }
 }
-
-let mainWindow: BrowserWindow | null = null;
-
-const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
 
 function createWindow(): void {
   // Create the browser window with security settings
@@ -34,27 +46,29 @@ function createWindow(): void {
     titleBarStyle: 'default',
   });
 
-  // Set Content Security Policy
-  mainWindow.webContents.session.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        'Content-Security-Policy': [
-          "default-src 'self';" +
-          "script-src 'self';" +
-          "style-src 'self' 'unsafe-inline';" +
-          "img-src 'self' data:;" +
-          "font-src 'self';" +
-          "connect-src 'self' https://polygon-rpc.com https://rpc-amoy.polygon.technology https://*.alchemy.com https://*.infura.io;" +
-          "object-src 'none';" +
-          "base-uri 'self';"
-        ],
-      },
+  // Set Content Security Policy (relaxed in development for Vite HMR)
+  if (!getIsDev()) {
+    mainWindow.webContents.session.webRequest.onHeadersReceived((details, callback) => {
+      callback({
+        responseHeaders: {
+          ...details.responseHeaders,
+          'Content-Security-Policy': [
+            "default-src 'self';" +
+            "script-src 'self';" +
+            "style-src 'self' 'unsafe-inline';" +
+            "img-src 'self' data:;" +
+            "font-src 'self';" +
+            "connect-src 'self' https://polygon-rpc.com https://rpc-amoy.polygon.technology https://*.alchemy.com https://*.infura.io;" +
+            "object-src 'none';" +
+            "base-uri 'self';"
+          ],
+        },
+      });
     });
-  });
+  }
 
   // Load the app
-  if (isDev) {
+  if (getIsDev()) {
     mainWindow.loadURL('http://localhost:5173');
     mainWindow.webContents.openDevTools();
   } else {
@@ -102,7 +116,7 @@ app.whenReady().then(async () => {
     logger.info('Main window created');
 
     // Initialize auto-updater (only in production)
-    if (!isDev && mainWindow) {
+    if (!getIsDev() && mainWindow) {
       initAutoUpdater(mainWindow);
       checkForUpdatesOnStartup();
       logger.info('Auto-updater initialized');
@@ -137,7 +151,7 @@ app.on('web-contents-created', (_, contents) => {
 
   // Prevent navigation to external URLs
   contents.on('will-navigate', (event, url) => {
-    const parsedUrl = new URL(url);
+    const parsedUrl = new globalThis.URL(url);
     if (parsedUrl.protocol !== 'file:' && !url.startsWith('http://localhost')) {
       event.preventDefault();
     }

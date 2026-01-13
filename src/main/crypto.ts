@@ -24,7 +24,7 @@ const KEY_LENGTH = 32;
 /** Initialization vector length in bytes (96 bits - GCM recommended) */
 const IV_LENGTH = 12;
 /** Authentication tag length in bytes (128 bits) */
-const AUTH_TAG_LENGTH = 16;
+const _AUTH_TAG_LENGTH = 16;
 /** Salt length in bytes (256 bits) */
 const SALT_LENGTH = 32;
 
@@ -208,19 +208,37 @@ export function calculatePinStrength(pin: string): number {
   let score = 0;
 
   // Length scoring
-  if (pin.length >= 8) score += 20;
-  if (pin.length >= 12) score += 10;
-  if (pin.length >= 16) score += 10;
+  if (pin.length >= 8) {
+    score += 20;
+  }
+  if (pin.length >= 12) {
+    score += 10;
+  }
+  if (pin.length >= 16) {
+    score += 10;
+  }
 
   // Character variety
-  if (/[a-z]/.test(pin)) score += 10;
-  if (/[A-Z]/.test(pin)) score += 10;
-  if (/[0-9]/.test(pin)) score += 10;
-  if (/[^a-zA-Z0-9]/.test(pin)) score += 15;
+  if (/[a-z]/.test(pin)) {
+    score += 10;
+  }
+  if (/[A-Z]/.test(pin)) {
+    score += 10;
+  }
+  if (/[0-9]/.test(pin)) {
+    score += 10;
+  }
+  if (/[^a-zA-Z0-9]/.test(pin)) {
+    score += 15;
+  }
 
   // Deductions for weak patterns
-  if (/(.)\1{2,}/.test(pin)) score -= 10; // Repeated characters
-  if (/^(123|abc|qwerty)/i.test(pin)) score -= 20; // Common sequences
+  if (/(.)\1{2,}/.test(pin)) {
+    score -= 10; // Repeated characters
+  }
+  if (/^(123|abc|qwerty)/i.test(pin)) {
+    score -= 20; // Common sequences
+  }
 
   return Math.max(0, Math.min(100, score));
 }
@@ -229,7 +247,7 @@ export function calculatePinStrength(pin: string): number {
  * Zero out sensitive string from memory
  * Note: This is best-effort in JavaScript due to string immutability
  */
-export function zeroOutString(str: string): void {
+export function zeroOutString(_str: string): void {
   // In JavaScript, strings are immutable, so we can't truly zero them out
   // This is documented as a limitation. For true security, consider using
   // Buffer or TypedArray for sensitive data

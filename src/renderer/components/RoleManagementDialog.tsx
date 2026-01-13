@@ -91,7 +91,9 @@ export function RoleManagementDialog({
   };
 
   const executeAction = async () => {
-    if (!pendingAction) return;
+    if (!pendingAction) {
+      return;
+    }
 
     setActionState('processing');
     setActionError(null);

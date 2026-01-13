@@ -3,14 +3,14 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol";
-import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/access/extensions/AccessControlEnumerable.sol";
 
 /**
  * @title MintableToken
  * @notice ERC20 token with access-controlled minting capability
- * @dev Uses OpenZeppelin v5 contracts for ERC20, ERC20Capped, and AccessControl
+ * @dev Uses OpenZeppelin v5 contracts for ERC20, ERC20Capped, and AccessControlEnumerable
  */
-contract MintableToken is ERC20, ERC20Capped, AccessControl {
+contract MintableToken is ERC20, ERC20Capped, AccessControlEnumerable {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
     bool public immutable hasCap;

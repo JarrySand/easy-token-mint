@@ -83,7 +83,7 @@ export function ReimportKeyDialog({ open, onOpenChange }: ReimportKeyDialogProps
       } else {
         setError(t('settings.privateKey.failed'));
       }
-    } catch (err) {
+    } catch {
       setError(t('settings.privateKey.failed'));
     } finally {
       setLoading(false);

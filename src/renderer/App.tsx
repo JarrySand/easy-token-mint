@@ -79,6 +79,10 @@ export function App() {
         onBack={() => setCurrentPage('dashboard')}
         onLanguageChange={changeLanguage}
         onConfigChange={setConfig}
+        onNetworkChange={() => {
+          refreshBalance();
+          loadTokens();
+        }}
       />
     );
   }

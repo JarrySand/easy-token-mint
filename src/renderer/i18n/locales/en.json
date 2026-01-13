@@ -44,7 +44,7 @@
     "privateKey": {
       "title": "Import Private Key",
       "description": "About Private Key",
-      "info": "Your private key will be encrypted and stored only on this device. Enter a private key for a Polygon (MATIC) compatible wallet.",
+      "info": "Your private key will be encrypted and stored only on this device. Enter a private key for a Polygon (POL) compatible wallet.",
       "label": "Private Key (64 character hex)",
       "placeholder": "Enter 64 character private key",
       "invalidFormat": "Invalid private key format. Must be 64 hexadecimal characters.",
@@ -92,16 +92,16 @@
       "title": "Wallet Info",
       "address": "Address",
       "notConnected": "Not connected",
-      "balance": "MATIC Balance"
+      "balance": "POL Balance"
     },
     "alert": {
       "danger": {
         "title": "Low Balance",
-        "description": "Your MATIC balance is critically low. Please add MATIC to execute transactions."
+        "description": "Your POL balance is critically low. Please add POL to execute transactions."
       },
       "warning": {
         "title": "Balance Running Low",
-        "description": "Your MATIC balance is getting low. Consider adding more MATIC."
+        "description": "Your POL balance is getting low. Consider adding more POL."
       }
     },
     "tokens": {
@@ -114,6 +114,7 @@
       "singleMint": "Single Mint",
       "batchMint": "Batch Mint",
       "batchMinterNotSet": "BatchMinter contract not configured",
+      "comingSoon": "Coming Soon",
       "roleManagement": "Manage Roles"
     }
   },
@@ -166,8 +167,8 @@
     },
     "alert": {
       "title": "Balance Alert Settings",
-      "warningThreshold": "Warning Threshold (MATIC)",
-      "dangerThreshold": "Danger Threshold (MATIC)",
+      "warningThreshold": "Warning Threshold (POL)",
+      "dangerThreshold": "Danger Threshold (POL)",
       "saved": "Settings saved"
     },
     "pin": {
@@ -304,7 +305,7 @@
   },
   "errors": {
     "network": "Network error. Please check your connection.",
-    "insufficientBalance": "Insufficient MATIC balance.",
+    "insufficientBalance": "Insufficient POL balance.",
     "noPermission": "You don't have permission for this operation.",
     "invalidInput": "Invalid input.",
     "txFailed": "Transaction failed.",

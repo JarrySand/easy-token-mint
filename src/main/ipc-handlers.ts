@@ -11,7 +11,7 @@
 
 import { ipcMain, shell } from 'electron';
 import { getConfig, updateConfig, isInitialized } from './config';
-import { verifyPin, changePin, getCachedPrivateKey, updateActivity, checkSession, setSessionTimeout, lockApp } from './pin-auth';
+import { verifyPin, changePin, updateActivity, checkSession, setSessionTimeout, lockApp } from './pin-auth';
 import {
   encryptPrivateKey,
   saveEncryptedWallet,
@@ -48,7 +48,7 @@ import {
 import { getLogsPath } from './paths';
 import { logger } from './logger';
 import { parseMintCsv, splitIntoBatches, generateFailedCsv } from './csv-parser';
-import type { NetworkType, OperationLogFilter, MintParams, Token, BatchMintParams, DeployTokenParams } from '../shared/types';
+import type { NetworkType, OperationLogFilter, MintParams, BatchMintParams, DeployTokenParams } from '../shared/types';
 
 /**
  * Registers all IPC handlers for the application.
@@ -234,7 +234,9 @@ export function registerIpcHandlers(): void {
 
   ipcMain.handle('tokens:refreshMinterRole', async (_, tokenId: number, tokenAddress: string) => {
     const config = getConfig();
-    if (!config.walletAddress) return;
+    if (!config.walletAddress) {
+      return;
+    }
 
     const hasMinter = await hasMinterRole(tokenAddress, config.walletAddress);
     updateToken(tokenId, { hasMinterRole: hasMinter });
@@ -642,7 +644,7 @@ export function registerIpcHandlers(): void {
     // Only allow specific domains
     const allowedDomains = ['polygonscan.com', 'amoy.polygonscan.com'];
     try {
-      const parsedUrl = new URL(url);
+      const parsedUrl = new globalThis.URL(url);
       if (allowedDomains.some((d) => parsedUrl.hostname.endsWith(d))) {
         await shell.openExternal(url);
       }

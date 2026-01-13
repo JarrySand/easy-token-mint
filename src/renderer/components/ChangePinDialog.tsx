@@ -75,7 +75,7 @@ export function ChangePinDialog({ open, onOpenChange }: ChangePinDialogProps) {
       } else {
         setError(t('settings.pin.currentIncorrect'));
       }
-    } catch (err) {
+    } catch {
       setError(t('settings.pin.failed'));
     } finally {
       setLoading(false);

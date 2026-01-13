@@ -1,5 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import crypto from 'crypto';
+import { describe, it, expect, vi } from 'vitest';
 
 // Mock paths module before importing crypto module
 vi.mock('../paths', () => ({

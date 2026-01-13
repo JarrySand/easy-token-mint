@@ -44,7 +44,7 @@
     "privateKey": {
       "title": "秘密鍵のインポート",
       "description": "秘密鍵について",
-      "info": "秘密鍵はこのデバイスでのみ暗号化して保存されます。Polygon (MATIC) に対応したウォレットの秘密鍵を入力してください。",
+      "info": "秘密鍵はこのデバイスでのみ暗号化して保存されます。Polygon (POL) に対応したウォレットの秘密鍵を入力してください。",
       "label": "秘密鍵 (64文字の16進数)",
       "placeholder": "64文字の秘密鍵を入力",
       "invalidFormat": "秘密鍵の形式が正しくありません。64文字の16進数である必要があります。",
@@ -92,16 +92,16 @@
       "title": "ウォレット情報",
       "address": "アドレス",
       "notConnected": "Not connected",
-      "balance": "MATIC 残高"
+      "balance": "POL 残高"
     },
     "alert": {
       "danger": {
         "title": "残高不足",
-        "description": "MATIC残高が非常に少なくなっています。トランザクションを実行するためにMATICを追加してください。"
+        "description": "POL残高が非常に少なくなっています。トランザクションを実行するためにPOLを追加してください。"
       },
       "warning": {
         "title": "残高が少なくなっています",
-        "description": "MATIC残高が少なくなっています。必要に応じてMATICを追加してください。"
+        "description": "POL残高が少なくなっています。必要に応じてPOLを追加してください。"
       }
     },
     "tokens": {
@@ -114,6 +114,7 @@
       "singleMint": "単発発行",
       "batchMint": "一括発行",
       "batchMinterNotSet": "BatchMinterコントラクトが未設定です",
+      "comingSoon": "開発中",
       "roleManagement": "権限管理"
     }
   },
@@ -166,8 +167,8 @@
     },
     "alert": {
       "title": "残高アラート設定",
-      "warningThreshold": "警告閾値 (MATIC)",
-      "dangerThreshold": "危険閾値 (MATIC)",
+      "warningThreshold": "警告閾値 (POL)",
+      "dangerThreshold": "危険閾値 (POL)",
       "saved": "設定を保存しました"
     },
     "pin": {
@@ -304,7 +305,7 @@
   },
   "errors": {
     "network": "ネットワークエラーが発生しました。接続を確認してください。",
-    "insufficientBalance": "MATIC残高が不足しています。",
+    "insufficientBalance": "POL残高が不足しています。",
     "noPermission": "この操作を行う権限がありません。",
     "invalidInput": "入力内容に誤りがあります。",
     "txFailed": "トランザクションが失敗しました。",

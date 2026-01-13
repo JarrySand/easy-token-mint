@@ -158,7 +158,7 @@ describe('DashboardPage', () => {
 
     it('TC-DASH-007: should display wallet balance', () => {
       renderDashboard();
-      expect(screen.getByText(/5\.0.*MATIC/)).toBeInTheDocument();
+      expect(screen.getByText(/5\.0.*POL/)).toBeInTheDocument();
     });
 
     it('should show "not connected" when wallet info is null', () => {
@@ -338,7 +338,7 @@ describe('DashboardPage', () => {
       renderDashboard({
         walletInfo: { ...defaultWalletInfo, balance: '0' },
       });
-      expect(screen.getByText(/0.*MATIC/)).toBeInTheDocument();
+      expect(screen.getByText(/0.*POL/)).toBeInTheDocument();
       expect(screen.getByText('dashboard.alert.danger.title')).toBeInTheDocument();
     });
 
@@ -347,7 +347,7 @@ describe('DashboardPage', () => {
         walletInfo: { ...defaultWalletInfo, balance: '1000000.123456789' },
       });
       // formatBalance returns fixed decimal format without comma separators
-      expect(screen.getByText(/1000000\.1235.*MATIC/)).toBeInTheDocument();
+      expect(screen.getByText(/1000000\.1235.*POL/)).toBeInTheDocument();
     });
   });
 });

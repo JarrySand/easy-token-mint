@@ -144,7 +144,7 @@ export function DashboardPage({
                       : 'text-gray-900'
                   }`}
                 >
-                  {formatBalance(walletInfo?.balance || '0')} MATIC
+                  {formatBalance(walletInfo?.balance || '0')} POL
                 </div>
               </div>
             </div>
@@ -219,9 +219,8 @@ export function DashboardPage({
                       <Button
                         className="flex-1"
                         variant="outline"
-                        disabled={!token.hasMinterRole || !batchMinterAddress}
-                        onClick={() => handleBatchMint(token)}
-                        title={!batchMinterAddress ? t('dashboard.tokens.batchMinterNotSet') : ''}
+                        disabled={true}
+                        title={t('dashboard.tokens.comingSoon')}
                       >
                         {t('dashboard.tokens.batchMint')}
                       </Button>

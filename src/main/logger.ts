@@ -96,7 +96,9 @@ function writeLog(entry: LogEntry): void {
 }
 
 export function initializeLogger(): void {
-  if (isInitialized) return;
+  if (isInitialized) {
+    return;
+  }
 
   ensureLogFile();
   isInitialized = true;

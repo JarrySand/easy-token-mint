@@ -52,7 +52,9 @@ export async function initializeDatabase(): Promise<void> {
 }
 
 function createTables(): void {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   // Tokens table
   db.exec(`
@@ -145,7 +147,9 @@ async function createBackup(): Promise<void> {
  * console.log(tokens.length); // Number of mainnet tokens
  */
 export function getTokens(network: NetworkType): Token[] {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const stmt = db.prepare(`
     SELECT id, address, name, symbol, decimals, network,
@@ -174,7 +178,9 @@ export function getTokens(network: NetworkType): Token[] {
  * }
  */
 export function getTokenByAddress(address: string, network: NetworkType): Token | undefined {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const stmt = db.prepare(`
     SELECT id, address, name, symbol, decimals, network,
@@ -207,14 +213,16 @@ export function getTokenByAddress(address: string, network: NetworkType): Token 
  * });
  */
 export function insertToken(token: Omit<Token, 'id' | 'createdAt' | 'updatedAt'>): Token {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const stmt = db.prepare(`
     INSERT INTO tokens (address, name, symbol, decimals, network, has_minter_role, max_supply)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 
-  const result = stmt.run(
+  stmt.run(
     token.address,
     token.name,
     token.symbol,
@@ -242,7 +250,9 @@ export function insertToken(token: Omit<Token, 'id' | 'createdAt' | 'updatedAt'>
  * updateToken(2, { name: 'New Name', symbol: 'NEW' });
  */
 export function updateToken(id: number, updates: Partial<Token>): void {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const fields: string[] = [];
   const values: unknown[] = [];
@@ -260,7 +270,9 @@ export function updateToken(id: number, updates: Partial<Token>): void {
     values.push(updates.symbol);
   }
 
-  if (fields.length === 0) return;
+  if (fields.length === 0) {
+    return;
+  }
 
   fields.push("updated_at = datetime('now')");
   values.push(id);
@@ -299,7 +311,9 @@ export function updateToken(id: number, updates: Partial<Token>): void {
  * });
  */
 export function getOperationLogs(filter?: OperationLogFilter): OperationLog[] {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   let query = `
     SELECT id, operation_type as operationType, token_id as tokenId,
@@ -363,7 +377,9 @@ export function getOperationLogs(filter?: OperationLogFilter): OperationLog[] {
 export function insertOperationLog(
   log: Omit<OperationLog, 'id' | 'createdAt' | 'updatedAt'>
 ): number {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const stmt = db.prepare(`
     INSERT INTO operation_logs (
@@ -418,7 +434,9 @@ export function updateOperationLog(
     tokenId?: number;
   }
 ): void {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const fields: string[] = [];
   const values: unknown[] = [];
@@ -440,7 +458,9 @@ export function updateOperationLog(
     values.push(updates.tokenId);
   }
 
-  if (fields.length === 0) return;
+  if (fields.length === 0) {
+    return;
+  }
 
   fields.push("updated_at = datetime('now')");
   values.push(id);
@@ -465,7 +485,9 @@ export function updateOperationLog(
  * }
  */
 export function getPendingOperations(): OperationLog[] {
-  if (!db) throw new Error('Database not initialized');
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
 
   const stmt = db.prepare(`
     SELECT id, operation_type as operationType, token_id as tokenId,

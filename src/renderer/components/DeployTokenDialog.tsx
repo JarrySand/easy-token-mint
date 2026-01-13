@@ -327,7 +327,7 @@ export function DeployTokenDialog({ open, onOpenChange, onSuccess }: DeployToken
                     </div>
                   )}
                   <div className="pt-2 border-t">
-                    <span className="font-medium">{t('deploy.gasEstimate')}:</span> {gasEstimate} MATIC
+                    <span className="font-medium">{t('deploy.gasEstimate')}:</span> {gasEstimate} POL
                   </div>
                 </div>
               </AlertDescription>

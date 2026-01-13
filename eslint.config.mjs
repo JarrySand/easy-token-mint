@@ -27,6 +27,20 @@ export default [
         setInterval: "readonly",
         clearInterval: "readonly",
         fetch: "readonly",
+        alert: "readonly",
+        navigator: "readonly",
+        // Browser DOM types
+        HTMLElement: "readonly",
+        HTMLDivElement: "readonly",
+        HTMLButtonElement: "readonly",
+        HTMLInputElement: "readonly",
+        HTMLLabelElement: "readonly",
+        HTMLHeadingElement: "readonly",
+        HTMLParagraphElement: "readonly",
+        HTMLAnchorElement: "readonly",
+        MouseEvent: "readonly",
+        Blob: "readonly",
+        URL: "readonly",
         // Node.js
         process: "readonly",
         Buffer: "readonly",
@@ -35,6 +49,7 @@ export default [
         module: "readonly",
         require: "readonly",
         global: "readonly",
+        globalThis: "readonly",
         NodeJS: "readonly",
         // Electron
         Electron: "readonly",

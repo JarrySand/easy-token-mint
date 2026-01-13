@@ -531,7 +531,7 @@ describe('IPC Handlers', () => {
     });
 
     it('TC-IPC-031: roles:grant should grant minter role', async () => {
-      const { getTokenByAddress, insertOperationLog, updateOperationLog } = await import('../database');
+      const { getTokenByAddress, insertOperationLog } = await import('../database');
       vi.mocked(getTokenByAddress).mockReturnValue({
         id: 1,
         address: '0xTokenAddress',
@@ -757,7 +757,7 @@ describe('IPC Handlers', () => {
 
   describe('Error Handling', () => {
     it('TC-IPC-045: should log errors on mint failure', async () => {
-      const { getTokenByAddress, insertOperationLog, updateOperationLog } = await import('../database');
+      const { getTokenByAddress, updateOperationLog } = await import('../database');
       const { mint } = await import('../blockchain');
       const { logger } = await import('../logger');
 

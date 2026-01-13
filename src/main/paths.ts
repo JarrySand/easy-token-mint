@@ -5,7 +5,7 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
-const APP_NAME = 'easy-token-mint';
+const _APP_NAME = 'easy-token-mint';
 
 /**
  * Get the base data directory based on OS

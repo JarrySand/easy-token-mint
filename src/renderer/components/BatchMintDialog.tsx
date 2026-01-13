@@ -95,7 +95,9 @@ export function BatchMintDialog({
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (!file) return;
+    if (!file) {
+      return;
+    }
 
     setFileName(file.name);
     setError(null);
@@ -183,7 +185,9 @@ export function BatchMintDialog({
         error: r.error || 'Unknown error',
       }));
 
-    if (failedRows.length === 0) return;
+    if (failedRows.length === 0) {
+      return;
+    }
 
     const csvContent = await window.electronAPI.generateFailedCsv(failedRows);
 
@@ -365,7 +369,7 @@ export function BatchMintDialog({
                   </div>
                   <div>
                     <span className="font-medium">推定ガス代 (1バッチ):</span>{' '}
-                    {gasEstimate} MATIC
+                    {gasEstimate} POL
                   </div>
                 </div>
               </AlertDescription>

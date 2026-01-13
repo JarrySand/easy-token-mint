@@ -15,9 +15,10 @@ interface SettingsPageProps {
   onBack: () => void;
   onLanguageChange: (language: 'ja' | 'en') => Promise<void>;
   onConfigChange: (config: AppConfig) => void;
+  onNetworkChange?: () => void;
 }
 
-export function SettingsPage({ config, onBack, onLanguageChange, onConfigChange }: SettingsPageProps) {
+export function SettingsPage({ config, onBack, onLanguageChange, onConfigChange, onNetworkChange }: SettingsPageProps) {
   const { t } = useTranslation();
   const [warningThreshold, setWarningThreshold] = useState(config.alertThresholds.warning.toString());
   const [dangerThreshold, setDangerThreshold] = useState(config.alertThresholds.danger.toString());
@@ -55,7 +56,7 @@ export function SettingsPage({ config, onBack, onLanguageChange, onConfigChange 
       onConfigChange({ ...config, alertThresholds: { warning, danger } });
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
-    } catch (err) {
+    } catch {
       setError(t('errors.unknown'));
     } finally {
       setSaving(false);
@@ -67,7 +68,9 @@ export function SettingsPage({ config, onBack, onLanguageChange, onConfigChange 
       await window.electronAPI.setNetwork(network);
       onConfigChange({ ...config, network });
       setNetworkDialogOpen(false);
-    } catch (err) {
+      // Refresh balance and tokens for the new network
+      onNetworkChange?.();
+    } catch {
       setError(t('errors.unknown'));
     }
   };

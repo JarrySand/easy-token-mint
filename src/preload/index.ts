@@ -1,10 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import type {
   ElectronAPI,
-  AppConfig,
-  WalletInfo,
-  Token,
-  OperationLog,
   OperationLogFilter,
   MintParams,
   BatchMintParams,

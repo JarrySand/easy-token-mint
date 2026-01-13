@@ -20,22 +20,38 @@ export function SetupPage({ onComplete }: SetupPageProps) {
   const [pin, setPin] = useState('');
   const [pinConfirm, setPinConfirm] = useState('');
   const [network, setNetwork] = useState<NetworkType>('mainnet');
-  const [address, setAddress] = useState<string | null>(null);
+  const [_address, setAddress] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   // Calculate PIN strength
   const getPinStrength = (p: string): { score: number; label: string; color: string } => {
     let score = 0;
-    if (p.length >= 8) score += 25;
-    if (p.length >= 12) score += 15;
-    if (/[a-z]/.test(p)) score += 15;
-    if (/[A-Z]/.test(p)) score += 15;
-    if (/[0-9]/.test(p)) score += 15;
-    if (/[^a-zA-Z0-9]/.test(p)) score += 15;
+    if (p.length >= 8) {
+      score += 25;
+    }
+    if (p.length >= 12) {
+      score += 15;
+    }
+    if (/[a-z]/.test(p)) {
+      score += 15;
+    }
+    if (/[A-Z]/.test(p)) {
+      score += 15;
+    }
+    if (/[0-9]/.test(p)) {
+      score += 15;
+    }
+    if (/[^a-zA-Z0-9]/.test(p)) {
+      score += 15;
+    }
 
-    if (score < 40) return { score, label: t('setup.pinSetup.weak'), color: 'bg-red-500' };
-    if (score < 70) return { score, label: t('setup.pinSetup.medium'), color: 'bg-yellow-500' };
+    if (score < 40) {
+      return { score, label: t('setup.pinSetup.weak'), color: 'bg-red-500' };
+    }
+    if (score < 70) {
+      return { score, label: t('setup.pinSetup.medium'), color: 'bg-yellow-500' };
+    }
     return { score, label: t('setup.pinSetup.strong'), color: 'bg-green-500' };
   };
 
@@ -116,7 +132,7 @@ export function SetupPage({ onComplete }: SetupPageProps) {
       await window.electronAPI.setNetwork(network);
 
       onComplete();
-    } catch (err) {
+    } catch {
       setError(t('setup.failed'));
     } finally {
       setIsLoading(false);

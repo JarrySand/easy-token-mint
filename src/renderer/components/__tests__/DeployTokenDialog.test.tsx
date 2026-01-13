@@ -104,7 +104,7 @@ describe('DeployTokenDialog', () => {
 
       await waitFor(() => {
         expect(screen.getByText(/deploy.confirmTitle/)).toBeInTheDocument();
-        expect(screen.getByText(/0.01 MATIC/)).toBeInTheDocument();
+        expect(screen.getByText(/0.01 POL/)).toBeInTheDocument();
       });
     });
   });

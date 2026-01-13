@@ -26,7 +26,7 @@ export async function initializeConfig(): Promise<void> {
   try {
     const data = await fs.readFile(configPath, 'utf-8');
     config = { ...DEFAULT_CONFIG, ...JSON.parse(data) };
-  } catch (error) {
+  } catch {
     // Config doesn't exist, create default
     config = { ...DEFAULT_CONFIG };
     await saveConfig();

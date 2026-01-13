@@ -84,6 +84,9 @@ export function useApp() {
 
   // Handle setup complete
   const onSetupComplete = useCallback(async () => {
+    // Reload config after setup (network may have changed)
+    const updatedConfig = await window.electronAPI.getConfig();
+    setConfig(updatedConfig);
     setState('pin');
   }, []);
 
@@ -94,7 +97,9 @@ export function useApp() {
 
   // Session timeout check
   useEffect(() => {
-    if (state !== 'dashboard') return;
+    if (state !== 'dashboard') {
+      return;
+    }
 
     const checkSession = async () => {
       try {
@@ -121,7 +126,9 @@ export function useApp() {
 
   // Update activity on user interactions when in dashboard
   useEffect(() => {
-    if (state !== 'dashboard') return;
+    if (state !== 'dashboard') {
+      return;
+    }
 
     const updateActivity = () => {
       window.electronAPI.updateActivity?.();

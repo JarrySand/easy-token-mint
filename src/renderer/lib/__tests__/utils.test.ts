@@ -8,8 +8,10 @@ describe('utils', () => {
     });
 
     it('should handle conditional classes', () => {
-      expect(cn('base', true && 'active')).toBe('base active');
-      expect(cn('base', false && 'active')).toBe('base');
+      const isActive = true;
+      const isInactive = false;
+      expect(cn('base', isActive && 'active')).toBe('base active');
+      expect(cn('base', isInactive && 'active')).toBe('base');
     });
 
     it('should merge Tailwind classes correctly', () => {

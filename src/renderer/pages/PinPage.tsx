@@ -19,7 +19,9 @@ export function PinPage({ onSuccess }: PinPageProps) {
 
   // Countdown timer for lock
   useEffect(() => {
-    if (!lockUntil) return;
+    if (!lockUntil) {
+      return;
+    }
 
     const interval = setInterval(() => {
       const remaining = Math.max(0, lockUntil - Date.now());
@@ -58,7 +60,7 @@ export function PinPage({ onSuccess }: PinPageProps) {
         setPin('');
         setError(t('pin.incorrect', { remaining: result.remainingAttempts }));
       }
-    } catch (err) {
+    } catch {
       setError(t('pin.authFailed'));
     } finally {
       setIsLoading(false);

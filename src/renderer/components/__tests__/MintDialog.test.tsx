@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MintDialog } from '../MintDialog';
 import type { Token } from '@shared/types';
@@ -157,7 +157,7 @@ describe('MintDialog', () => {
 
       await waitFor(() => {
         expect(screen.getByText(/mint.confirmTitle/)).toBeInTheDocument();
-        expect(screen.getByText(/0.005 MATIC/)).toBeInTheDocument();
+        expect(screen.getByText(/0.005 POL/)).toBeInTheDocument();
       });
     });
 

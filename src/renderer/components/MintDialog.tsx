@@ -178,7 +178,7 @@ export function MintDialog({ open, onOpenChange, token, onSuccess }: MintDialogP
                     <span className="font-medium">{t('mint.amount')}:</span> {amount} {token.symbol}
                   </div>
                   <div>
-                    <span className="font-medium">{t('mint.gasEstimate')}:</span> {gasEstimate} MATIC
+                    <span className="font-medium">{t('mint.gasEstimate')}:</span> {gasEstimate} POL
                   </div>
                 </div>
               </AlertDescription>

@@ -2,7 +2,7 @@ import { isValidAddress } from './blockchain';
 
 // Precision for internal calculations (18 decimals like wei)
 const PRECISION = 18;
-const PRECISION_MULTIPLIER = BigInt(10 ** PRECISION);
+const _PRECISION_MULTIPLIER = BigInt(10 ** PRECISION);
 
 /**
  * Parse decimal string to BigInt with fixed precision
@@ -79,7 +79,9 @@ export function parseMintCsv(content: string): CsvParseResult {
 
   for (let i = startIndex; i < lines.length; i++) {
     const line = lines[i].trim();
-    if (!line) continue;
+    if (!line) {
+      continue;
+    }
 
     const lineNumber = i + 1;
     const parts = line.split(',').map(p => p.trim());
@@ -157,11 +159,15 @@ export function parseMintCsv(content: string): CsvParseResult {
  * Validate amount string
  */
 function isValidAmount(amount: string): boolean {
-  if (!amount) return false;
+  if (!amount) {
+    return false;
+  }
 
   // Allow integer or decimal number
   const numRegex = /^\d+(\.\d+)?$/;
-  if (!numRegex.test(amount)) return false;
+  if (!numRegex.test(amount)) {
+    return false;
+  }
 
   const num = parseFloat(amount);
   return !isNaN(num) && num > 0 && isFinite(num);
