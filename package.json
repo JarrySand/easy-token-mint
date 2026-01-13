@@ -129,7 +129,7 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "your-github-username",
+      "owner": "JarrySand",
       "repo": "easy-token-mint"
     }
   }

@@ -32,19 +32,34 @@ Polygon（MATIC）ネットワーク上でERC20トークンを管理・発行す
 
 ## インストール
 
-### リリースから（推奨）
+### ダウンロード（一般ユーザー向け）
 
-[Releases](https://github.com/your-github-username/easy-token-mint/releases)から最新版をダウンロードしてください。
+[**Releases**](https://github.com/JarrySand/easy-token-mint/releases/latest)から最新版をダウンロードしてください。
 
-- Windows: `.exe`インストーラー
-- macOS: `.dmg`パッケージ
-- Linux: `.AppImage`または`.deb`
+| OS | ファイル | 状態 |
+|----|----------|------|
+| Windows | `Easy Token Mint Setup x.x.x.exe` | ✅ 利用可能 |
+| macOS | `.dmg` | 🚧 準備中 |
+| Linux | `.AppImage` / `.deb` | 🚧 準備中 |
 
-### 開発環境でのセットアップ
+#### Windows版のインストール手順
+
+1. [Releases](https://github.com/JarrySand/easy-token-mint/releases/latest)ページから `Easy Token Mint Setup x.x.x.exe` をダウンロード
+2. ダウンロードしたファイルをダブルクリックして実行
+3. **Windows SmartScreenの警告が表示された場合**：
+   - 「詳細情報」をクリック
+   - 「実行」をクリック
+
+   > ⚠️ この警告は、アプリがコード署名されていないために表示されます。セキュリティ上の問題ではありません。
+
+4. インストーラーの指示に従ってインストール
+5. インストール完了後、デスクトップまたはスタートメニューから起動
+
+### 開発環境でのセットアップ（開発者向け）
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/your-github-username/easy-token-mint.git
+git clone https://github.com/JarrySand/easy-token-mint.git
 cd easy-token-mint
 
 # 依存関係をインストール
