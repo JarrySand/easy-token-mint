@@ -1,0 +1,313 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "back": "戻る",
+    "next": "次へ",
+    "confirm": "確認",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "save": "保存",
+    "delete": "削除",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "refresh": "更新",
+    "export": "エクスポート",
+    "exporting": "エクスポート中...",
+    "submit": "送信",
+    "all": "すべて",
+    "settings": "設定",
+    "history": "履歴"
+  },
+  "app": {
+    "title": "Easy Token Mint",
+    "network": {
+      "mainnet": "Mainnet",
+      "testnet": "Testnet"
+    }
+  },
+  "pin": {
+    "title": "PIN入力",
+    "description": "PINを入力してログインしてください",
+    "placeholder": "PINを入力",
+    "login": "ログイン",
+    "loggingIn": "ログイン中...",
+    "required": "PINを入力してください",
+    "incorrect": "PINが正しくありません。残り{{remaining}}回の試行が可能です。",
+    "locked": "アカウントがロックされました",
+    "lockCountdown": "ロック解除まで: {{time}}",
+    "authFailed": "認証に失敗しました"
+  },
+  "setup": {
+    "title": "初期設定",
+    "step": "ステップ {{current}}/{{total}}",
+    "privateKey": {
+      "title": "秘密鍵のインポート",
+      "description": "秘密鍵について",
+      "info": "秘密鍵はこのデバイスでのみ暗号化して保存されます。Polygon (MATIC) に対応したウォレットの秘密鍵を入力してください。",
+      "label": "秘密鍵 (64文字の16進数)",
+      "placeholder": "64文字の秘密鍵を入力",
+      "invalidFormat": "秘密鍵の形式が正しくありません。64文字の16進数である必要があります。",
+      "processingFailed": "秘密鍵の処理に失敗しました",
+      "importFailed": "秘密鍵のインポートに失敗しました"
+    },
+    "pinSetup": {
+      "title": "PIN設定",
+      "requirements": "PINの要件",
+      "req1": "8文字以上",
+      "req2": "英字を含む",
+      "req3": "数字を含む",
+      "label": "PIN",
+      "placeholder": "PINを入力",
+      "confirmLabel": "PIN (確認)",
+      "confirmPlaceholder": "PINを再入力",
+      "strength": "強度",
+      "weak": "弱い",
+      "medium": "普通",
+      "strong": "強い",
+      "minLength": "PINは8文字以上で設定してください",
+      "requireLetter": "PINには英字を含めてください",
+      "requireNumber": "PINには数字を含めてください",
+      "mismatch": "確認用PINが一致しません"
+    },
+    "network": {
+      "title": "ネットワーク選択",
+      "mainnetDesc": "本番環境",
+      "testnetDesc": "テスト環境 (Amoy)"
+    },
+    "confirm": {
+      "title": "確認",
+      "reviewTitle": "設定内容を確認してください",
+      "networkLabel": "ネットワーク",
+      "mainnet": "Polygon Mainnet",
+      "testnet": "Polygon Amoy Testnet",
+      "warning": "秘密鍵は暗号化されてこのデバイスに保存されます。PINを忘れた場合、秘密鍵を再インポートする必要があります。",
+      "complete": "設定完了",
+      "completing": "設定中..."
+    },
+    "failed": "セットアップに失敗しました"
+  },
+  "dashboard": {
+    "wallet": {
+      "title": "ウォレット情報",
+      "address": "アドレス",
+      "notConnected": "Not connected",
+      "balance": "MATIC 残高"
+    },
+    "alert": {
+      "danger": {
+        "title": "残高不足",
+        "description": "MATIC残高が非常に少なくなっています。トランザクションを実行するためにMATICを追加してください。"
+      },
+      "warning": {
+        "title": "残高が少なくなっています",
+        "description": "MATIC残高が少なくなっています。必要に応じてMATICを追加してください。"
+      }
+    },
+    "tokens": {
+      "title": "管理トークン",
+      "deploy": "新規デプロイ",
+      "addToken": "トークン追加",
+      "empty": "トークンが登録されていません。「トークン追加」から始めてください。",
+      "hasMinterRole": "Minter権限あり",
+      "noRole": "権限なし",
+      "singleMint": "単発発行",
+      "batchMint": "一括発行",
+      "batchMinterNotSet": "BatchMinterコントラクトが未設定です",
+      "roleManagement": "権限管理"
+    }
+  },
+  "history": {
+    "title": "操作履歴",
+    "csvExport": "CSVエクスポート",
+    "filter": {
+      "title": "フィルター",
+      "operationType": "操作タイプ",
+      "startDate": "開始日",
+      "endDate": "終了日"
+    },
+    "result": {
+      "title": "履歴一覧",
+      "count": "{{count}}件",
+      "empty": "履歴がありません"
+    },
+    "operationType": {
+      "deploy": "デプロイ",
+      "mint": "単発発行",
+      "batch_mint": "一括発行",
+      "grant_role": "権限付与",
+      "revoke_role": "権限削除"
+    },
+    "status": {
+      "pending": "処理中",
+      "confirming": "確認中",
+      "success": "成功",
+      "failed": "失敗",
+      "timeout": "タイムアウト"
+    },
+    "loadFailed": "履歴の取得に失敗しました",
+    "exportFailed": "エクスポートに失敗しました",
+    "exportSuccess": "CSVファイルをエクスポートしました: {{path}}"
+  },
+  "settings": {
+    "title": "設定",
+    "language": {
+      "title": "言語",
+      "ja": "日本語",
+      "en": "English"
+    },
+    "network": {
+      "title": "ネットワーク",
+      "switch": "ネットワーク切替",
+      "confirmTitle": "ネットワークを切り替えますか？",
+      "confirmMessage": "ネットワークを{{network}}に切り替えます。トークン一覧と操作ログは選択したネットワークのものに切り替わります。",
+      "mainnet": "Mainnet",
+      "testnet": "Testnet (Amoy)"
+    },
+    "alert": {
+      "title": "残高アラート設定",
+      "warningThreshold": "警告閾値 (MATIC)",
+      "dangerThreshold": "危険閾値 (MATIC)",
+      "saved": "設定を保存しました"
+    },
+    "pin": {
+      "title": "PIN変更",
+      "change": "PINを変更",
+      "currentPin": "現在のPIN",
+      "newPin": "新しいPIN",
+      "confirmNewPin": "新しいPIN (確認)",
+      "success": "PINを変更しました",
+      "currentIncorrect": "現在のPINが正しくありません",
+      "failed": "PIN変更に失敗しました"
+    },
+    "privateKey": {
+      "title": "秘密鍵の再インポート",
+      "reimport": "秘密鍵を再インポート",
+      "warning": "既存のウォレットデータは上書きされます。トークン情報と操作ログは保持されます。",
+      "success": "秘密鍵を再インポートしました",
+      "failed": "再インポートに失敗しました"
+    },
+    "logs": {
+      "title": "ログ",
+      "openFolder": "ログフォルダを開く"
+    }
+  },
+  "mint": {
+    "title": "トークン発行",
+    "recipient": "発行先アドレス",
+    "recipientPlaceholder": "0x...",
+    "amount": "発行量",
+    "amountPlaceholder": "発行する数量",
+    "gasEstimate": "ガス見積",
+    "gasLimit": "ガスリミット",
+    "gasPrice": "ガス価格",
+    "totalCost": "合計コスト",
+    "confirmTitle": "発行内容を確認",
+    "confirmMessage": "以下の内容でトークンを発行します。",
+    "execute": "発行実行",
+    "executing": "発行中...",
+    "success": "トークンを発行しました",
+    "txHash": "TX Hash",
+    "invalidAddress": "有効なアドレスを入力してください",
+    "invalidAmount": "有効な数量を入力してください",
+    "failed": "発行に失敗しました"
+  },
+  "batchMint": {
+    "title": "一括発行",
+    "csvFile": "CSVファイル",
+    "selectFile": "ファイルを選択",
+    "preview": "プレビュー",
+    "validRows": "有効: {{count}}件",
+    "invalidRows": "無効: {{count}}件",
+    "totalAmount": "合計発行量: {{amount}}",
+    "skipInvalid": "無効なアドレスをスキップ",
+    "progress": "進捗: {{current}}/{{total}} バッチ",
+    "successCount": "成功: {{count}}件",
+    "failedCount": "失敗: {{count}}件",
+    "downloadFailed": "失敗分CSVをダウンロード",
+    "csvFormat": "CSVフォーマット: address,amount",
+    "noFile": "CSVファイルを選択してください"
+  },
+  "deploy": {
+    "title": "新規トークンデプロイ",
+    "name": "トークン名",
+    "namePlaceholder": "例: My Token",
+    "symbol": "シンボル",
+    "symbolPlaceholder": "例: MTK",
+    "decimals": "小数点桁数",
+    "maxSupply": "発行上限",
+    "unlimited": "無制限",
+    "limited": "上限あり",
+    "maxSupplyAmount": "上限数量",
+    "initialMint": "初期発行",
+    "noInitialMint": "初期発行なし",
+    "withInitialMint": "初期発行あり",
+    "initialAmount": "初期発行量",
+    "initialRecipient": "初期発行先",
+    "gasEstimate": "デプロイ費用見積",
+    "confirmTitle": "デプロイ内容を確認",
+    "execute": "デプロイ実行",
+    "executing": "デプロイ中...",
+    "success": "トークンをデプロイしました",
+    "contractAddress": "コントラクトアドレス",
+    "failed": "デプロイに失敗しました"
+  },
+  "addToken": {
+    "title": "トークン追加",
+    "address": "コントラクトアドレス",
+    "addressPlaceholder": "0x...",
+    "checking": "確認中...",
+    "check": "確認",
+    "tokenInfo": "トークン情報",
+    "name": "名前",
+    "symbol": "シンボル",
+    "decimals": "小数点桁数",
+    "hasMinterRole": "Minter権限",
+    "yes": "あり",
+    "no": "なし",
+    "add": "追加",
+    "adding": "追加中...",
+    "success": "トークンを追加しました",
+    "invalidAddress": "有効なコントラクトアドレスを入力してください",
+    "notErc20": "ERC20準拠のトークンではありません",
+    "noAccessControl": "AccessControlに対応していません",
+    "checkFailed": "トークン情報の取得に失敗しました",
+    "addFailed": "トークンの追加に失敗しました"
+  },
+  "roleManagement": {
+    "title": "権限管理",
+    "currentMinters": "現在のミンター一覧",
+    "loading": "読み込み中...",
+    "noMinters": "ミンターが登録されていません",
+    "addMinter": "ミンター追加",
+    "addMinterAddress": "追加するアドレス",
+    "add": "追加",
+    "adding": "追加中...",
+    "revoke": "削除",
+    "revoking": "削除中...",
+    "addSuccess": "ミンター権限を付与しました",
+    "revokeSuccess": "ミンター権限を削除しました",
+    "addFailed": "権限付与に失敗しました",
+    "revokeFailed": "権限削除に失敗しました",
+    "loadFailed": "ミンター一覧の取得に失敗しました",
+    "invalidAddress": "有効なアドレスを入力してください"
+  },
+  "transaction": {
+    "pending": "トランザクション送信中...",
+    "confirming": "確認待ち ({{confirmations}}/{{required}})",
+    "success": "トランザクション完了",
+    "failed": "トランザクション失敗",
+    "timeout": "タイムアウト",
+    "timeoutMessage": "トランザクションがタイムアウトしました。ネットワークの状況を確認してください。",
+    "waitMore": "待機を続ける",
+    "viewOnPolygonscan": "Polygonscanで確認"
+  },
+  "errors": {
+    "network": "ネットワークエラーが発生しました。接続を確認してください。",
+    "insufficientBalance": "MATIC残高が不足しています。",
+    "noPermission": "この操作を行う権限がありません。",
+    "invalidInput": "入力内容に誤りがあります。",
+    "txFailed": "トランザクションが失敗しました。",
+    "unknown": "予期しないエラーが発生しました。"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "copy": "Copy",
+    "copied": "Copied",
+    "refresh": "Refresh",
+    "export": "Export",
+    "exporting": "Exporting...",
+    "submit": "Submit",
+    "all": "All",
+    "settings": "Settings",
+    "history": "History"
+  },
+  "app": {
+    "title": "Easy Token Mint",
+    "network": {
+      "mainnet": "Mainnet",
+      "testnet": "Testnet"
+    }
+  },
+  "pin": {
+    "title": "Enter PIN",
+    "description": "Enter your PIN to log in",
+    "placeholder": "Enter PIN",
+    "login": "Login",
+    "loggingIn": "Logging in...",
+    "required": "Please enter your PIN",
+    "incorrect": "Incorrect PIN. {{remaining}} attempts remaining.",
+    "locked": "Account locked",
+    "lockCountdown": "Unlock in: {{time}}",
+    "authFailed": "Authentication failed"
+  },
+  "setup": {
+    "title": "Initial Setup",
+    "step": "Step {{current}}/{{total}}",
+    "privateKey": {
+      "title": "Import Private Key",
+      "description": "About Private Key",
+      "info": "Your private key will be encrypted and stored only on this device. Enter a private key for a Polygon (MATIC) compatible wallet.",
+      "label": "Private Key (64 character hex)",
+      "placeholder": "Enter 64 character private key",
+      "invalidFormat": "Invalid private key format. Must be 64 hexadecimal characters.",
+      "processingFailed": "Failed to process private key",
+      "importFailed": "Failed to import private key"
+    },
+    "pinSetup": {
+      "title": "Set PIN",
+      "requirements": "PIN Requirements",
+      "req1": "At least 8 characters",
+      "req2": "Contains letters",
+      "req3": "Contains numbers",
+      "label": "PIN",
+      "placeholder": "Enter PIN",
+      "confirmLabel": "Confirm PIN",
+      "confirmPlaceholder": "Re-enter PIN",
+      "strength": "Strength",
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong",
+      "minLength": "PIN must be at least 8 characters",
+      "requireLetter": "PIN must contain letters",
+      "requireNumber": "PIN must contain numbers",
+      "mismatch": "PINs do not match"
+    },
+    "network": {
+      "title": "Select Network",
+      "mainnetDesc": "Production",
+      "testnetDesc": "Test Environment (Amoy)"
+    },
+    "confirm": {
+      "title": "Confirm",
+      "reviewTitle": "Review your settings",
+      "networkLabel": "Network",
+      "mainnet": "Polygon Mainnet",
+      "testnet": "Polygon Amoy Testnet",
+      "warning": "Your private key will be encrypted and stored on this device. If you forget your PIN, you will need to re-import your private key.",
+      "complete": "Complete Setup",
+      "completing": "Setting up..."
+    },
+    "failed": "Setup failed"
+  },
+  "dashboard": {
+    "wallet": {
+      "title": "Wallet Info",
+      "address": "Address",
+      "notConnected": "Not connected",
+      "balance": "MATIC Balance"
+    },
+    "alert": {
+      "danger": {
+        "title": "Low Balance",
+        "description": "Your MATIC balance is critically low. Please add MATIC to execute transactions."
+      },
+      "warning": {
+        "title": "Balance Running Low",
+        "description": "Your MATIC balance is getting low. Consider adding more MATIC."
+      }
+    },
+    "tokens": {
+      "title": "Managed Tokens",
+      "deploy": "Deploy New",
+      "addToken": "Add Token",
+      "empty": "No tokens registered. Start by clicking \"Add Token\".",
+      "hasMinterRole": "Has Minter Role",
+      "noRole": "No Permission",
+      "singleMint": "Single Mint",
+      "batchMint": "Batch Mint",
+      "batchMinterNotSet": "BatchMinter contract not configured",
+      "roleManagement": "Manage Roles"
+    }
+  },
+  "history": {
+    "title": "Operation History",
+    "csvExport": "Export CSV",
+    "filter": {
+      "title": "Filter",
+      "operationType": "Operation Type",
+      "startDate": "Start Date",
+      "endDate": "End Date"
+    },
+    "result": {
+      "title": "History",
+      "count": "{{count}} records",
+      "empty": "No history found"
+    },
+    "operationType": {
+      "deploy": "Deploy",
+      "mint": "Single Mint",
+      "batch_mint": "Batch Mint",
+      "grant_role": "Grant Role",
+      "revoke_role": "Revoke Role"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirming": "Confirming",
+      "success": "Success",
+      "failed": "Failed",
+      "timeout": "Timeout"
+    },
+    "loadFailed": "Failed to load history",
+    "exportFailed": "Failed to export",
+    "exportSuccess": "CSV exported to: {{path}}"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Language",
+      "ja": "Japanese",
+      "en": "English"
+    },
+    "network": {
+      "title": "Network",
+      "switch": "Switch Network",
+      "confirmTitle": "Switch network?",
+      "confirmMessage": "Switching to {{network}}. Token list and operation logs will be filtered for the selected network.",
+      "mainnet": "Mainnet",
+      "testnet": "Testnet (Amoy)"
+    },
+    "alert": {
+      "title": "Balance Alert Settings",
+      "warningThreshold": "Warning Threshold (MATIC)",
+      "dangerThreshold": "Danger Threshold (MATIC)",
+      "saved": "Settings saved"
+    },
+    "pin": {
+      "title": "Change PIN",
+      "change": "Change PIN",
+      "currentPin": "Current PIN",
+      "newPin": "New PIN",
+      "confirmNewPin": "Confirm New PIN",
+      "success": "PIN changed successfully",
+      "currentIncorrect": "Current PIN is incorrect",
+      "failed": "Failed to change PIN"
+    },
+    "privateKey": {
+      "title": "Re-import Private Key",
+      "reimport": "Re-import Private Key",
+      "warning": "Existing wallet data will be overwritten. Token information and operation logs will be preserved.",
+      "success": "Private key re-imported successfully",
+      "failed": "Failed to re-import"
+    },
+    "logs": {
+      "title": "Logs",
+      "openFolder": "Open Logs Folder"
+    }
+  },
+  "mint": {
+    "title": "Mint Token",
+    "recipient": "Recipient Address",
+    "recipientPlaceholder": "0x...",
+    "amount": "Amount",
+    "amountPlaceholder": "Amount to mint",
+    "gasEstimate": "Gas Estimate",
+    "gasLimit": "Gas Limit",
+    "gasPrice": "Gas Price",
+    "totalCost": "Total Cost",
+    "confirmTitle": "Confirm Mint",
+    "confirmMessage": "You are about to mint tokens with the following details.",
+    "execute": "Execute Mint",
+    "executing": "Minting...",
+    "success": "Tokens minted successfully",
+    "txHash": "TX Hash",
+    "invalidAddress": "Please enter a valid address",
+    "invalidAmount": "Please enter a valid amount",
+    "failed": "Minting failed"
+  },
+  "batchMint": {
+    "title": "Batch Mint",
+    "csvFile": "CSV File",
+    "selectFile": "Select File",
+    "preview": "Preview",
+    "validRows": "Valid: {{count}}",
+    "invalidRows": "Invalid: {{count}}",
+    "totalAmount": "Total Amount: {{amount}}",
+    "skipInvalid": "Skip invalid addresses",
+    "progress": "Progress: {{current}}/{{total}} batches",
+    "successCount": "Success: {{count}}",
+    "failedCount": "Failed: {{count}}",
+    "downloadFailed": "Download Failed CSV",
+    "csvFormat": "CSV format: address,amount",
+    "noFile": "Please select a CSV file"
+  },
+  "deploy": {
+    "title": "Deploy New Token",
+    "name": "Token Name",
+    "namePlaceholder": "e.g., My Token",
+    "symbol": "Symbol",
+    "symbolPlaceholder": "e.g., MTK",
+    "decimals": "Decimals",
+    "maxSupply": "Max Supply",
+    "unlimited": "Unlimited",
+    "limited": "Limited",
+    "maxSupplyAmount": "Max Supply Amount",
+    "initialMint": "Initial Mint",
+    "noInitialMint": "No Initial Mint",
+    "withInitialMint": "With Initial Mint",
+    "initialAmount": "Initial Amount",
+    "initialRecipient": "Initial Recipient",
+    "gasEstimate": "Deploy Cost Estimate",
+    "confirmTitle": "Confirm Deploy",
+    "execute": "Execute Deploy",
+    "executing": "Deploying...",
+    "success": "Token deployed successfully",
+    "contractAddress": "Contract Address",
+    "failed": "Deployment failed"
+  },
+  "addToken": {
+    "title": "Add Token",
+    "address": "Contract Address",
+    "addressPlaceholder": "0x...",
+    "checking": "Checking...",
+    "check": "Check",
+    "tokenInfo": "Token Info",
+    "name": "Name",
+    "symbol": "Symbol",
+    "decimals": "Decimals",
+    "hasMinterRole": "Minter Role",
+    "yes": "Yes",
+    "no": "No",
+    "add": "Add",
+    "adding": "Adding...",
+    "success": "Token added successfully",
+    "invalidAddress": "Please enter a valid contract address",
+    "notErc20": "Not an ERC20 compliant token",
+    "noAccessControl": "Does not support AccessControl",
+    "checkFailed": "Failed to fetch token info",
+    "addFailed": "Failed to add token"
+  },
+  "roleManagement": {
+    "title": "Role Management",
+    "currentMinters": "Current Minters",
+    "loading": "Loading...",
+    "noMinters": "No minters registered",
+    "addMinter": "Add Minter",
+    "addMinterAddress": "Address to add",
+    "add": "Add",
+    "adding": "Adding...",
+    "revoke": "Revoke",
+    "revoking": "Revoking...",
+    "addSuccess": "Minter role granted",
+    "revokeSuccess": "Minter role revoked",
+    "addFailed": "Failed to grant role",
+    "revokeFailed": "Failed to revoke role",
+    "loadFailed": "Failed to load minters",
+    "invalidAddress": "Please enter a valid address"
+  },
+  "transaction": {
+    "pending": "Sending transaction...",
+    "confirming": "Waiting for confirmation ({{confirmations}}/{{required}})",
+    "success": "Transaction complete",
+    "failed": "Transaction failed",
+    "timeout": "Timeout",
+    "timeoutMessage": "Transaction timed out. Please check network status.",
+    "waitMore": "Continue waiting",
+    "viewOnPolygonscan": "View on Polygonscan"
+  },
+  "errors": {
+    "network": "Network error. Please check your connection.",
+    "insufficientBalance": "Insufficient MATIC balance.",
+    "noPermission": "You don't have permission for this operation.",
+    "invalidInput": "Invalid input.",
+    "txFailed": "Transaction failed.",
+    "unknown": "An unexpected error occurred."
+  }
+}

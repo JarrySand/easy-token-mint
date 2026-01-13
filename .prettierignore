@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+out/
+
+# Hardhat artifacts
+artifacts/
+cache/
+typechain-types/
+
+# Misc
+*.log
+.DS_Store
+coverage/

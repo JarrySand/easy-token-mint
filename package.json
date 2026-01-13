@@ -1,0 +1,134 @@
+{
+  "name": "easy-token-mint",
+  "version": "1.0.0",
+  "description": "Easy Token Mint - Polygon Token Management Desktop App",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:electron\"",
+    "dev:vite": "vite --config vite.config.ts",
+    "dev:electron": "wait-on http://localhost:5173 && npm run build:main && electron .",
+    "build": "npm run build:vite && npm run build:main",
+    "build:vite": "vite build --config vite.config.ts",
+    "build:main": "tsc -p tsconfig.main.json",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:linux": "npm run build && electron-builder --linux",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "compile": "npx hardhat compile",
+    "test:contracts": "npx hardhat test",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"contracts/**/*.sol\" \"test/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\" \"contracts/**/*.sol\" \"test/**/*.ts\""
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "polygon",
+    "token",
+    "mint",
+    "erc20"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.0.6",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/parser": "^8.53.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@vitest/coverage-v8": "^4.0.17",
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.4.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "happy-dom": "^20.1.0",
+    "hardhat": "^2.28.3",
+    "jsdom": "^27.4.0",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.17",
+    "wait-on": "^9.0.3"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "better-sqlite3": "^12.6.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "electron-updater": "^6.7.3",
+    "ethers": "^6.16.0",
+    "i18next": "^25.7.4",
+    "postcss": "^8.5.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-i18next": "^16.5.2",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "build": {
+    "appId": "com.easytokenmint.app",
+    "productName": "Easy Token Mint",
+    "directories": {
+      "output": "out"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icon.png",
+      "category": "Finance"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "your-github-username",
+      "repo": "easy-token-mint"
+    }
+  }
+}
